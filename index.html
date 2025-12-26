@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="فروشگاه آنلاین لوازم آرایشی و بهداشتی - خرید محصولات اصل و با تخفیف ویژه">
+    <meta name="keywords" content="لوازم آرایشی، بهداشتی، مراقبت پوست، آرایش، عطر، شامپو">
+    <title>فروشگاه لوازم آرایشی و بهداشتی | خرید آنلاین</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Favicon -->
+    <link rel="icon"
+        href="data:image/svg+xml،<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💄</text></svg>">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container navbar-content">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">💄</div>
+                <span>لوازم آرایشی</span>
+            </a>
+
+            <div class="search-bar">
+                <input type="text" id="search-input" class="search-input" placeholder="جستجوی محصولات...">
+                <span class="search-icon">🔍</span>
+            </div>
+
+            <div class="nav-actions">
+                <a href="blog.html" class="nav-btn">
+                    📚 مقالات
+                </a>
+                <a href="cart.html" class="nav-btn">
+                    🛒 سبد خرید
+                    <span class="cart-badge">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Navigation Menu -->
+    <div class="main-nav">
+        <div class="container">
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link active">خانه</a></li>
+                <li><a href="products.html?category=مراقبت پوست" class="nav-link">مراقبت پوست</a></li>
+                <li><a href="products.html?category=آرایش" class="nav-link">آرایش</a></li>
+                <li><a href="products.html?category=مراقبت مو" class="nav-link">مراقبت مو</a></li>
+                <li><a href="products.html?category=بهداشت شخصی" class="nav-link">بهداشت شخصی</a></li>
+                <li><a href="products.html?badge=تخفیف" class="nav-link">تخفیف‌ها</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">زیبایی طبیعی شما، اولویت ماست</h1>
+                <p class="hero-subtitle">محصولات اصل و با کیفیت از برندهای معتبر دنیا</p>
+                <div class="flex-center gap-2 mt-3">
+                    <a href="products.html" class="btn btn-primary">مشاهده محصولات</a>
+                    <a href="blog.html" class="btn btn-secondary">مقالات آموزشی</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">دسته‌بندی محصولات</h2>
+                <p class="section-subtitle">انتخاب براساس نیاز شما</p>
+            </div>
+
+            <div class="grid grid-4" id="categories-grid">
+                <!-- Categories will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="section" style="background: white;">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">محصولات پرفروش</h2>
+                <p class="section-subtitle">محبوب‌ترین محصولات ماه</p>
+            </div>
+
+            <div class="grid grid-4" id="featured-products">
+                <!-- Products will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Offers -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">پیشنهادات ویژه</h2>
+                <p class="section-subtitle">تخفیف‌های ویژه این هفته</p>
+            </div>
+
+            <div class="grid grid-3" id="special-offers">
+                <!-- Discounted products will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Preview -->
+    <section class="section" style="background: white;">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">آخرین مقالات</h2>
+                <p class="section-subtitle">مراقبت از پوست و زیبایی</p>
+            </div>
+
+            <div class="grid grid-3" id="blog-preview">
+                <!-- Blog articles will be loaded here -->
+            </div>
+
+            <div class="text-center mt-4">
+                <a href="blog.html" class="btn btn-outline">مشاهده همه مقالات</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>درباره ما</h3>
+                    <p>فروشگاه آنلاین لوازم آرایشی و بهداشتی با بیش از 1000 محصول اصل از برندهای معتبر دنیا</p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>لینک‌های مفید</h3>
+                    <div class="footer-links">
+                        <a href="products.html" class="footer-link">محصولات</a>
+                        <a href="blog.html" class="footer-link">مقالات</a>
+                        <a href="#" class="footer-link">درباره ما</a>
+                        <a href="#" class="footer-link">تماس با ما</a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>راهنما و پشتیبانی</h3>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link">سوالات متداول</a>
+                        <a href="#" class="footer-link">شیوه‌های پرداخت</a>
+                        <a href="#" class="footer-link">رویه ارسال</a>
+                        <a href="#" class="footer-link">رویه بازگشت کالا</a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>تماس با ما</h3>
+                    <div class="footer-links">
+                        <p>📞 تلفن: 021-12345678</p>
+                        <p>📧 ایمیل: info@cosmetics.shop</p>
+                        <p>📍 تهران، خیابان ولیعصر</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 1402 تمامی حقوق محفوظ است | فروشگاه لوازم آرایشی و بهداشتی</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/product-data.js"></script>
+    <script src="js/blog-data.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+        // Load Categories
+        function loadCategories() {
+            const grid = document.getElementById('categories-grid');
+            if (!grid) return;
+
+            grid.innerHTML = categories.map(cat => `
+                <a href="products.html?category=${encodeURIComponent(cat.name)}" class="card">
+                    <div class="card-image flex-center" style="font-size: 4rem; background: linear-gradient(135deg, rgba(233, 30, 99, 0.1), rgba(156, 39, 176, 0.1));">
+                        ${cat.icon}
+                    </div>
+                    <div class="card-content text-center">
+                        <h3 class="card-title">${cat.name}</h3>
+                        <p class="card-description">${cat.subcategories.length} زیردسته</p>
+                    </div>
+                </a>
+            `).join('');
+        }
+
+        // Load Featured Products
+        function loadFeaturedProducts() {
+            const grid = document.getElementById('featured-products');
+            if (!grid) return;
+
+            // Get products with high ratings or "پرفروش" badge
+            const featured = products
+                .filter(p => p.rating >= 4.7 || p.badge === 'پرفروش' || p.badge === 'محبوب')
+                .slice(0, 8);
+
+            grid.innerHTML = featured.map(product => createProductCard(product)).join('');
+        }
+
+        // Load Special Offers
+        function loadSpecialOffers() {
+            const grid = document.getElementById('special-offers');
+            if (!grid) return;
+
+            // Get products with discount
+            const offers = products.filter(p => p.oldPrice).slice(0, 6);
+
+            grid.innerHTML = offers.map(product => createProductCard(product)).join('');
+        }
+
+        // Load Blog Preview
+        function loadBlogPreview() {
+            const grid = document.getElementById('blog-preview');
+            if (!grid) return;
+
+            const preview = blogArticles.slice(0, 3);
+
+            grid.innerHTML = preview.map(article => `
+                <a href="blog-article.html?id=${article.id}" class="card">
+                    <div class="card-image" style="background: linear-gradient(135deg, rgba(233, 30, 99, 0.1), rgba(156, 39, 176, 0.1)); display: flex; align-items: center; justify-content: center; font-size: 3rem;">
+                        📰
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">${article.title}</h3>
+                        <p class="card-description">${article.excerpt}</p>
+                        <div class="flex-between mt-2" style="font-size: 0.875rem; color: var(--text-secondary);">
+                            <span>👤 ${article.author}</span>
+                            <span>⏱️ ${article.readTime}</span>
+                        </div>
+                    </div>
+                </a>
+            `).join('');
+        }
+
+        // Create Product Card
+        function createProductCard(product) {
+            return `
+                <div class="card product-card">
+                    ${product.badge ? `<span class="product-badge ${product.badge === 'جدید' ? 'new' : ''}">${product.badge}</span>` : ''}
+                    <div class="card-image">
+                        <img src="${product.image}" alt="${product.name}" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">${product.name}</h3>
+                        <p class="card-description">${product.brand} • ${product.subcategory}</p>
+                        <div class="rating">
+                            ${'⭐'.repeat(Math.floor(product.rating))}
+                            <span>(${product.reviews})</span>
+                        </div>
+                        <div class="product-price">
+                            <div>
+                                ${product.oldPrice ? `<span class="price-old">${formatPrice(product.oldPrice)}</span>` : ''}
+                                <div class="price">${formatPrice(product.price)} تومان</div>
+                            </div>
+                        </div>
+                        <button onclick="addToCart(${product.id})" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
+                            افزودن به سبد
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Get category icon
+        function getCategoryIcon(category) {
+            const icons = {
+                'مراقبت پوست': '🧴',
+                'آرایش': '💄',
+                'مراقبت مو': '💇',
+                'بهداشت شخصی': '✨'
+            };
+            return icons[category] || '🎁';
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function () {
+            loadCategories();
+            loadFeaturedProducts();
+            loadSpecialOffers();
+            loadBlogPreview();
+        });
+    </script>
+</body>
+
+</html>

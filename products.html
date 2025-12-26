@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="فروشگاه آنلاین لوازم آرایشی و بهداشتی - محصولات اصل">
+    <title>محصولات | فروشگاه لوازم آرایشی</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container navbar-content">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">💄</div>
+                <span>لوازم آرایشی</span>
+            </a>
+
+            <div class="search-bar">
+                <input type="text" id="search-input" class="search-input" placeholder="جستجوی محصولات...">
+                <span class="search-icon">🔍</span>
+            </div>
+
+            <div class="nav-actions">
+                <a href="blog.html" class="nav-btn">📚 مقالات</a>
+                <a href="cart.html" class="nav-btn">
+                    🛒 سبد خرید
+                    <span class="cart-badge">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Navigation Menu -->
+    <div class="main-nav">
+        <div class="container">
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">خانه</a></li>
+                <li><a href="products.html?category=مراقبت پوست" class="nav-link">مراقبت پوست</a></li>
+                <li><a href="products.html?category=آرایش" class="nav-link">آرایش</a></li>
+                <li><a href="products.html?category=مراقبت مو" class="nav-link">مراقبت مو</a></li>
+                <li><a href="products.html?category=بهداشت شخصی" class="nav-link">بهداشت شخصی</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Products Page -->
+    <section class="section">
+        <div class="container">
+            <h1 class="section-title mb-4" id="page-title">تمامی محصولات</h1>
+
+            <div style="display: grid; grid-template-columns: 280px 1fr; gap: var(--spacing-xl);">
+                <!-- Filters Sidebar -->
+                <div>
+                    <!-- Category Filter -->
+                    <div class="card mb-3">
+                        <div class="card-content">
+                            <h3 class="mb-2">دسته‌بندی</h3>
+                            <div id="category-filters"
+                                style="display: flex; flex-direction: column; gap: var(--spacing-sm);">
+                                <!-- Categories will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Brand Filter -->
+                    <div class="card mb-3">
+                        <div class="card-content">
+                            <h3 class="mb-2">برند</h3>
+                            <div id="brand-filters"
+                                style="display: flex; flex-direction: column; gap: var(--spacing-sm); max-height: 300px; overflow-y: auto;">
+                                <!-- Brands will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Price Filter -->
+                    <div class="card">
+                        <div class="card-content">
+                            <h3 class="mb-2">قیمت</h3>
+                            <div id="price-filters"
+                                style="display: flex; flex-direction: column; gap: var(--spacing-sm);">
+                                <!-- Price ranges will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Products Grid -->
+                <div>
+                    <!-- Sort and Display Options -->
+                    <div class="flex-between mb-3"
+                        style="padding: var(--spacing-md); background: white; border-radius: var(--radius-md);">
+                        <div>
+                            <span id="product-count">0</span> محصول
+                        </div>
+                        <select id="sort-select"
+                            style="padding: var(--spacing-sm) var(--spacing-md); border: 2px solid var(--border); border-radius: var(--radius-md);">
+                            <option value="newest">جدیدترین</option>
+                            <option value="price-low">ارزان‌ترین</option>
+                            <option value="price-high">گران‌ترین</option>
+                            <option value="popular">محبوب‌ترین</option>
+                        </select>
+                    </div>
+
+                    <div class="grid grid-4" id="products-grid">
+                        <!-- Products will be loaded here -->
+                    </div>
+
+                    <div id="no-products" style="display: none; text-align: center; padding: var(--spacing-2xl);">
+                        <div style="font-size: 4rem; margin-bottom: var(--spacing-lg);">🔍</div>
+                        <h3>محصولی یافت نشد</h3>
+                        <p style="color: var(--text-secondary); margin-top: var(--spacing-sm);">
+                            لطفاً فیلترهای دیگری را امتحان کنید
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>© 1402 تمامی حقوق محفوظ است | فروشگاه لوازم آرایشی و بهداشتی</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Styles -->
+    <style>
+        .filter-checkbox {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-xs);
+            cursor: pointer;
+            border-radius: var(--radius-sm);
+            transition: background var(--transition-fast);
+        }
+
+        .filter-checkbox:hover {
+            background: var(--bg-accent);
+        }
+
+        .filter-checkbox input {
+            margin: 0;
+        }
+    </style>
+
+    <!-- Scripts -->
+    <script src="js/product-data.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+        let filteredProducts = [...products];
+        let selectedCategory = null;
+        let selectedBrands = [];
+        let selectedPriceRange = null;
+        let sortBy = 'newest';
+
+        // Get URL parameters
+        function getURLParams() {
+            const params = new URLSearchParams(window.location.search);
+            selectedCategory = params.get('category');
+            const badge = params.get('badge');
+
+            if (badge) {
+                filteredProducts = products.filter(p => p.badge === badge);
+                document.getElementById('page-title').textContent = `محصولات ${badge}`;
+            }
+        }
+
+        // Load Filters
+        function loadFilters() {
+            // Category filters
+            const categoryContainer = document.getElementById('category-filters');
+            categoryContainer.innerHTML = `
+                <label class="filter-checkbox">
+                    <input type="radio" name="category" value="" ${!selectedCategory ? 'checked' : ''} onchange="filterByCategory('')">
+                    <span>همه محصولات</span>
+                </label>
+                ${categories.map(cat => `
+                    <label class="filter-checkbox">
+                        <input type="radio" name="category" value="${cat.name}" ${selectedCategory === cat.name ? 'checked' : ''} onchange="filterByCategory('${cat.name}')">
+                        <span>${cat.name}</span>
+                    </label>
+                `).join('')}
+            `;
+
+            // Brand filters
+            const brandContainer = document.getElementById('brand-filters');
+            brandContainer.innerHTML = brands.map(brand => `
+                <label class="filter-checkbox">
+                    <input type="checkbox" value="${brand}" onchange="toggleBrand('${brand}')">
+                    <span>${brand}</span>
+                </label>
+            `).join('');
+
+            // Price filters
+            const priceContainer = document.getElementById('price-filters');
+            priceContainer.innerHTML = `
+                <label class="filter-checkbox">
+                    <input type="radio" name="price" value="" checked onchange="filterByPrice(null)">
+                    <span>همه قیمت‌ها</span>
+                </label>
+                ${priceRanges.map((range, index) => `
+                    <label class="filter-checkbox">
+                        <input type="radio" name="price" value="${index}" onchange="filterByPrice(${index})">
+                        <span>${range.label}</span>
+                    </label>
+                `).join('')}
+            `;
+        }
+
+        // Filter Functions
+        function filterByCategory(category) {
+            selectedCategory = category || null;
+            applyFilters();
+        }
+
+        function toggleBrand(brand) {
+            const index = selectedBrands.indexOf(brand);
+            if (index > -1) {
+                selectedBrands.splice(index, 1);
+            } else {
+                selectedBrands.push(brand);
+            }
+            applyFilters();
+        }
+
+        function filterByPrice(rangeIndex) {
+            selectedPriceRange = rangeIndex !== null ? priceRanges[rangeIndex] : null;
+            applyFilters();
+        }
+
+        function applyFilters() {
+            filteredProducts = products.filter(product => {
+                // Category filter
+                if (selectedCategory && product.category !== selectedCategory) {
+                    return false;
+                }
+
+                // Brand filter
+                if (selectedBrands.length > 0 && !selectedBrands.includes(product.brand)) {
+                    return false;
+                }
+
+                // Price filter
+                if (selectedPriceRange && (product.price < selectedPriceRange.min || product.price > selectedPriceRange.max)) {
+                    return false;
+                }
+
+                return true;
+            });
+
+            sortProducts();
+            renderProducts();
+        }
+
+        function sortProducts() {
+            switch (sortBy) {
+                case 'price-low':
+                    filteredProducts.sort((a, b) => a.price - b.price);
+                    break;
+                case 'price-high':
+                    filteredProducts.sort((a, b) => b.price - a.price);
+                    break;
+                case 'popular':
+                    filteredProducts.sort((a, b) => b.rating - a.rating);
+                    break;
+                case 'newest':
+                default:
+                    filteredProducts.sort((a, b) => b.id - a.id);
+            }
+        }
+
+        function renderProducts() {
+            const grid = document.getElementById('products-grid');
+            const noProducts = document.getElementById('no-products');
+            const count = document.getElementById('product-count');
+
+            count.textContent = filteredProducts.length;
+
+            if (filteredProducts.length === 0) {
+                grid.style.display = 'none';
+                noProducts.style.display = 'block';
+                return;
+            }
+
+            grid.style.display = 'grid';
+            noProducts.style.display = 'none';
+
+            grid.innerHTML = filteredProducts.map(product => `
+                <div class="card product-card">
+                    ${product.badge ? `<span class="product-badge ${product.badge === 'جدید' ? 'new' : ''}">${product.badge}</span>` : ''}
+                    <div class="card-image">
+                        <img src="${product.image}" alt="${product.name}" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">${product.name}</h3>
+                        <p class="card-description">${product.brand} • ${product.subcategory}</p>
+                        <div class="rating">
+                            ${'⭐'.repeat(Math.floor(product.rating))}
+                            <span>(${product.reviews})</span>
+                        </div>
+                        <div class="product-price">
+                            <div>
+                                ${product.oldPrice ? `<span class="price-old">${formatPrice(product.oldPrice)}</span>` : ''}
+                                <div class="price">${formatPrice(product.price)} تومان</div>
+                            </div>
+                        </div>
+                        <button onclick="addToCart(${product.id})" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
+                            افزودن به سبد
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function getCategoryIcon(category) {
+            const icons = {
+                'مراقبت پوست': '🧴',
+                'آرایش': '💄',
+                'مراقبت مو': '💇',
+                'بهداشت شخصی': '✨'
+            };
+            return icons[category] || '🎁';
+        }
+
+        // Search
+        document.getElementById('search-input').addEventListener('input', function (e) {
+            const query = e.target.value.toLowerCase();
+
+            if (!query) {
+                applyFilters();
+                return;
+            }
+
+            filteredProducts = products.filter(p =>
+                p.name.toLowerCase().includes(query) ||
+                p.brand.toLowerCase().includes(query) ||
+                p.category.toLowerCase().includes(query) ||
+                p.subcategory.toLowerCase().includes(query)
+            );
+
+            sortProducts();
+            renderProducts();
+        });
+
+        // Sort
+        document.getElementById('sort-select').addEventListener('change', function (e) {
+            sortBy = e.target.value;
+            sortProducts();
+            renderProducts();
+        });
+
+        // Initialize  
+        document.addEventListener('DOMContentLoaded', function () {
+            getURLParams();
+            loadFilters();
+            if (selectedCategory) {
+                filterByCategory(selectedCategory);
+            } else {
+                applyFilters();
+            }
+        });
+    </script>
+</body>
+
+</html>

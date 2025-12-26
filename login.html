@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ورود و ثبت‌نام در فروشگاه لوازم آرایشی و بهداشتی">
+    <title>ورود | ثبت‌نام - فروشگاه لوازم آرایشی</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .auth-container {
+            min-height: calc(100vh - 200px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--spacing-xl) 0;
+            background: linear-gradient(135deg, rgba(233, 30, 99, 0.05), rgba(156, 39, 176, 0.05));
+        }
+
+        .auth-card {
+            background: white;
+            width: 100%;
+            max-width: 450px;
+            padding: var(--spacing-2xl);
+            border-radius: var(--radius-2xl);
+            box-shadow: 0 10px 40px var(--shadow-hover);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .auth-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--gradient-primary);
+        }
+
+        .auth-header {
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .auth-tabs {
+            display: flex;
+            background: var(--bg-accent);
+            padding: 5px;
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .auth-tab {
+            flex: 1;
+            padding: var(--spacing-md);
+            border: none;
+            background: none;
+            cursor: pointer;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            color: var(--text-secondary);
+            transition: all var(--transition-base);
+        }
+
+        .auth-tab.active {
+            background: white;
+            color: var(--primary);
+            box-shadow: 0 2px 8px var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: var(--spacing-xs);
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: var(--spacing-md);
+            border: 2px solid var(--border);
+            border-radius: var(--radius-lg);
+            transition: all var(--transition-fast);
+            font-family: inherit;
+        }
+
+        .form-input:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(233, 30, 99, 0.1);
+        }
+
+        .password-toggle {
+            position: relative;
+        }
+
+        .toggle-btn {
+            position: absolute;
+            left: var(--spacing-md);
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-secondary);
+        }
+
+        .auth-footer {
+            text-align: center;
+            margin-top: var(--spacing-xl);
+        }
+
+        .social-auth {
+            margin-top: var(--spacing-xl);
+            padding-top: var(--spacing-xl);
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .social-btns {
+            display: flex;
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-md);
+        }
+
+        .social-btn {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-md);
+            border: 2px solid var(--border);
+            border-radius: var(--radius-lg);
+            background: white;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all var(--transition-fast);
+        }
+
+        .social-btn:hover {
+            background: var(--bg-accent);
+            border-color: var(--text-secondary);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .auth-msg {
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            margin-bottom: var(--spacing-md);
+            font-size: var(--font-size-sm);
+            display: none;
+        }
+
+        .auth-msg.error {
+            background: #ffebee;
+            color: var(--error);
+            border: 1px solid var(--error);
+            display: block;
+        }
+
+        .auth-msg.success {
+            background: #e8f5e9;
+            color: var(--success);
+            border: 1px solid var(--success);
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container navbar-content">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">💄</div>
+                <span>لوازم آرایشی</span>
+            </a>
+            <div class="nav-actions">
+                <a href="index.html" class="nav-btn">بازگشت به فروشگاه</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <h2>خوش آمدید</h2>
+                <p style="color: var(--text-secondary);">وارد حساب خود شوید یا حساب جدید بسازید</p>
+            </div>
+
+            <div class="auth-tabs">
+                <button class="auth-tab active" onclick="switchTab('login')">ورود</button>
+                <button class="auth-tab" onclick="switchTab('register')">ثبت‌نام</button>
+            </div>
+
+            <div id="auth-message" class="auth-msg"></div>
+
+            <!-- Login Form -->
+            <form id="login-form">
+                <div class="form-group">
+                    <label class="form-label">ایمیل یا شماره موبایل</label>
+                    <input type="text" id="login-identifier" class="form-input" placeholder="example@gmail.com" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">رمز عبور</label>
+                    <div class="password-toggle">
+                        <input type="password" id="login-password" class="form-input" placeholder="••••••••" required>
+                        <button type="button" class="toggle-btn" onclick="togglePassword('login-password')">👁️</button>
+                    </div>
+                </div>
+                <div class="flex-between" style="margin-bottom: var(--spacing-lg);">
+                    <label class="flex-center gap-1" style="cursor: pointer;">
+                        <input type="checkbox"> مرا به خاطر بسپار
+                    </label>
+                    <a href="#" style="color: var(--primary); font-size: var(--font-size-sm);">فراموشی رمز عبور؟</a>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; border-radius: var(--radius-lg); font-size: var(--font-size-lg);">
+                    ورود به حساب
+                </button>
+            </form>
+
+            <!-- Register Form -->
+            <form id="register-form" class="hidden">
+                <div class="form-group">
+                    <label class="form-label">نام و نام خانوادگی</label>
+                    <input type="text" id="reg-name" class="form-input" placeholder="مثلا: علی محمدی" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">ایمیل یا شماره موبایل</label>
+                    <input type="text" id="reg-identifier" class="form-input" placeholder="example@gmail.com" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">رمز عبور</label>
+                    <div class="password-toggle">
+                        <input type="password" id="reg-password" class="form-input" placeholder="••••••••" required>
+                        <button type="button" class="toggle-btn" onclick="togglePassword('reg-password')">👁️</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">تکرار رمز عبور</label>
+                    <input type="password" id="reg-confirm" class="form-input" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; border-radius: var(--radius-lg); font-size: var(--font-size-lg);">
+                    ساخت حساب کاربری
+                </button>
+            </form>
+
+            <div class="social-auth">
+                <p style="font-size: var(--font-size-sm); color: var(--text-secondary);">یا ورود با استفاده از:</p>
+                <div class="social-btns">
+                    <button class="social-btn">
+                        <span>Google</span>
+                        <span style="font-size: 1.2rem;">G</span>
+                    </button>
+                    <button class="social-btn">
+                        <span>Apple</span>
+                        <span style="font-size: 1.2rem;"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer" style="margin-top: 0; background: transparent;">
+        <div class="container text-center">
+            <p>© 1402 تمامی حقوق محفوظ است | فروشگاه لوازم آرایشی و بهداشتی</p>
+        </div>
+    </footer>
+
+    <script src="js/auth.js"></script>
+    <script>
+        function switchTab(tab) {
+            const loginForm = document.getElementById('login-form');
+            const registerForm = document.getElementById('register-form');
+            const tabs = document.querySelectorAll('.auth-tab');
+            const message = document.getElementById('auth-message');
+
+            message.className = 'auth-msg';
+            message.textContent = '';
+
+            if (tab === 'login') {
+                loginForm.classList.remove('hidden');
+                registerForm.classList.add('hidden');
+                tabs[0].classList.add('active');
+                tabs[1].classList.remove('active');
+            } else {
+                loginForm.classList.add('hidden');
+                registerForm.classList.remove('hidden');
+                tabs[0].classList.remove('active');
+                tabs[1].classList.add('active');
+            }
+        }
+
+        function togglePassword(inputId) {
+            const input = document.getElementById(inputId);
+            input.type = input.type === 'password' ? 'text' : 'password';
+        }
+    </script>
+</body>
+
+</html>

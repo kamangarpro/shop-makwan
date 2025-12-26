@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="مقالات آموزشی مراقبت از پوست و زیبایی">
+    <title>مقالات آموزشی | فروشگاه لوازم آرایشی</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container navbar-content">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">💄</div>
+                <span>لوازم آرایشی</span>
+            </a>
+
+            <div class="search-bar">
+                <input type="text" id="blog-search" class="search-input" placeholder="جستجو در مقالات...">
+                <span class="search-icon">🔍</span>
+            </div>
+
+            <div class="nav-actions">
+                <a href="blog.html" class="nav-btn">📚 مقالات</a>
+                <a href="cart.html" class="nav-btn">
+                    🛒 سبد خرید
+                    <span class="cart-badge">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Navigation Menu -->
+    <div class="main-nav">
+        <div class="container">
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">خانه</a></li>
+                <li><a href="products.html?category=مراقبت پوست" class="nav-link">مراقبت پوست</a></li>
+                <li><a href="products.html?category=آرایش" class="nav-link">آرایش</a></li>
+                <li><a href="products.html?category=مراقبت مو" class="nav-link">مراقبت مو</a></li>
+                <li><a href="products.html?category=بهداشت شخصی" class="nav-link">بهداشت شخصی</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero" style="padding: var(--spacing-xl) 0;">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">مقالات آموزشی</h1>
+                <p class="hero-subtitle">راهنمای کامل مراقبت از پوست و زیبایی</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Articles -->
+    <section class="section">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 1fr 300px; gap: var(--spacing-xl);">
+                <!-- Articles Grid -->
+                <div>
+                    <div class="grid grid-2" id="blog-articles">
+                        <!-- Articles will be loaded here -->
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div>
+                    <!-- Categories -->
+                    <div class="card mb-3">
+                        <div class="card-content">
+                            <h3 class="mb-2">دسته‌بندی‌ها</h3>
+                            <div id="blog-categories"
+                                style="display: flex; flex-direction: column; gap: var(--spacing-sm);">
+                                <!-- Categories will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Popular Tags -->
+                    <div class="card">
+                        <div class="card-content">
+                            <h3 class="mb-2">برچسب‌های محبوب</h3>
+                            <div id="popular-tags" style="display: flex; flex-wrap: wrap; gap: var(--spacing-sm);">
+                                <!-- Tags will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>© 1402 تمامی حقوق محفوظ است | فروشگاه لوازم آرایشی و بهداشتی</p>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        .tag {
+            padding: var(--spacing-xs) var(--spacing-md);
+            background: var(--bg-accent);
+            color: var(--primary);
+            border-radius: var(--radius-lg);
+            font-size: var(--font-size-sm);
+            transition: all var(--transition-fast);
+        }
+
+        .tag:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .category-link {
+            padding: var(--spacing-sm);
+            border-radius: var(--radius-md);
+            transition: all var(--transition-fast);
+            display: block;
+        }
+
+        .category-link:hover {
+            background: var(--bg-accent);
+            color: var(--primary);
+        }
+    </style>
+
+    <!-- Scripts -->
+    <script src="js/blog-data.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+        // Load Blog Articles
+        function loadBlogArticles() {
+            const grid = document.getElementById('blog-articles');
+            if (!grid) return;
+
+            grid.innerHTML = blogArticles.map(article => `
+                <div class="card">
+                    <div class="card-image" style="background: linear-gradient(135deg, rgba(233, 30, 99, 0.1), rgba(156, 39, 176, 0.1)); display: flex; align-items: center; justify-content: center; font-size: 4rem;">
+                        📰
+                    </div>
+                    <div class="card-content">
+                        <div style="display: flex; gap: var(--spacing-sm); margin-bottom: var(--spacing-sm);">
+                            <span style="background: var(--primary); color: white; padding: var(--spacing-xs) var(--spacing-sm); border-radius: var(--radius-sm); font-size: var(--font-size-xs);">
+                                ${article.category}
+                            </span>
+                        </div>
+                        <h3 class="card-title">${article.title}</h3>
+                        <p class="card-description">${article.excerpt}</p>
+                        <div class="flex-between mt-2" style="font-size: var(--font-size-sm); color: var(--text-secondary);">
+                            <span>👤 ${article.author}</span>
+                            <span>⏱️ ${article.readTime}</span>
+                        </div>
+                        <div class="flex-between mt-2" style="font-size: var(--font-size-sm); color: var(--text-secondary);">
+                            <span>📅 ${article.date}</span>
+                        </div>
+                        <a href="blog-article.html?id=${article.id}" class="btn btn-primary mt-2" style="width: 100%;">
+                            ادامه مطلب
+                        </a>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Load Categories
+        function loadCategories() {
+            const container = document.getElementById('blog-categories');
+            if (!container) return;
+
+            container.innerHTML = blogCategories.map(cat => `
+                <a href="#" class="category-link">
+                    ${cat.name} (${cat.count})
+                </a>
+            `).join('');
+        }
+
+        // Load Popular Tags
+        function loadPopularTags() {
+            const container = document.getElementById('popular-tags');
+            if (!container) return;
+
+            container.innerHTML = popularTags.map(tag => `
+                <a href="#" class="tag">${tag}</a>
+            `).join('');
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function () {
+            loadBlogArticles();
+            loadCategories();
+            loadPopularTags();
+        });
+    </script>
+</body>
+
+</html>

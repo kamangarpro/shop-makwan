@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="سبد خرید - فروشگاه لوازم آرایشی و بهداشتی">
+    <title>سبد خرید | فروشگاه لوازم آرایشی</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .cart-page {
+            min-height: 60vh;
+            padding: var(--spacing-xl) 0;
+        }
+
+        .cart-item {
+            background: white;
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--spacing-md);
+            display: grid;
+            grid-template-columns: 100px 1fr auto auto;
+            gap: var(--spacing-lg);
+            align-items: center;
+            box-shadow: 0 2px 8px var(--shadow);
+        }
+
+        .cart-item-image img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: var(--radius-md);
+            background: var(--bg-accent);
+        }
+
+        .cart-item-name {
+            font-size: var(--font-size-lg);
+            font-weight: 600;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .cart-item-brand {
+            color: var(--text-secondary);
+            font-size: var(--font-size-sm);
+        }
+
+        .cart-item-price {
+            color: var(--primary);
+            font-weight: 600;
+            margin-top: var(--spacing-sm);
+        }
+
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            background: var(--bg-primary);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-xs);
+        }
+
+        .btn-quantity {
+            width: 32px;
+            height: 32px;
+            border-radius: var(--radius-sm);
+            background: white;
+            border: 1px solid var(--border);
+            font-size: var(--font-size-lg);
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .btn-quantity:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .quantity-display {
+            min-width: 40px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .btn-remove {
+            color: var(--error);
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--error);
+            background: white;
+        }
+
+        .btn-remove:hover {
+            background: var(--error);
+            color: white;
+        }
+
+        .cart-item-total {
+            font-size: var(--font-size-xl);
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .cart-summary {
+            background: white;
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-lg);
+            box-shadow: 0 2px 8px var(--shadow);
+            position: sticky;
+            top: 100px;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            padding: var(--spacing-md) 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .summary-row:last-child {
+            border-bottom: none;
+            font-size: var(--font-size-xl);
+            font-weight: 700;
+            color: var(--primary);
+            padding-top: var(--spacing-lg);
+        }
+
+        .empty-cart {
+            text-align: center;
+            padding: var(--spacing-2xl);
+        }
+
+        .empty-cart-icon {
+            font-size: 5rem;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .coupon-section {
+            margin-top: var(--spacing-lg);
+            padding-top: var(--spacing-lg);
+            border-top: 1px solid var(--border);
+        }
+
+        .coupon-input-group {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-md);
+        }
+
+        .coupon-input {
+            flex: 1;
+            padding: var(--spacing-md);
+            border: 2px solid var(--border);
+            border-radius: var(--radius-md);
+        }
+
+        @media (max-width: 768px) {
+            .cart-item {
+                grid-template-columns: 80px 1fr;
+                gap: var(--spacing-md);
+            }
+
+            .cart-item-actions,
+            .cart-item-total {
+                grid-column: 1 / -1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container navbar-content">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">💄</div>
+                <span>لوازم آرایشی</span>
+            </a>
+
+            <div class="search-bar">
+                <input type="text" class="search-input" placeholder="جستجوی محصولات...">
+                <span class="search-icon">🔍</span>
+            </div>
+
+            <div class="nav-actions">
+                <a href="blog.html" class="nav-btn">📚 مقالات</a>
+                <a href="cart.html" class="nav-btn">
+                    🛒 سبد خرید
+                    <span class="cart-badge">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Navigation Menu -->
+    <div class="main-nav">
+        <div class="container">
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">خانه</a></li>
+                <li><a href="products.html?category=مراقبت پوست" class="nav-link">مراقبت پوست</a></li>
+                <li><a href="products.html?category=آرایش" class="nav-link">آرایش</a></li>
+                <li><a href="products.html?category=مراقبت مو" class="nav-link">مراقبت مو</a></li>
+                <li><a href="products.html?category=بهداشت شخصی" class="nav-link">بهداشت شخصی</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Cart Page -->
+    <div class="cart-page">
+        <div class="container">
+            <h1 class="section-title mb-4">سبد خرید</h1>
+
+            <div style="display: grid; grid-template-columns: 1fr 400px; gap: var(--spacing-xl); align-items: start;">
+                <!-- Cart Items -->
+                <div>
+                    <div id="empty-cart-message" class="empty-cart" style="display: none;">
+                        <div class="empty-cart-icon">🛒</div>
+                        <h2>سبد خرید شما خالی است</h2>
+                        <p class="mt-2 mb-3" style="color: var(--text-secondary);">
+                            برای مشاهده و خرید محصولات به صفحه فروشگاه بروید
+                        </p>
+                        <a href="products.html" class="btn btn-primary">مشاهده محصولات</a>
+                    </div>
+
+                    <div id="cart-items">
+                        <!-- Cart items will be loaded here by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Cart Summary -->
+                <div id="cart-summary" class="cart-summary" style="display: none;">
+                    <h3 style="margin-bottom: var(--spacing-lg);">خلاصه سبد خرید</h3>
+
+                    <div class="summary-row">
+                        <span>جمع کل:</span>
+                        <span id="cart-subtotal">0 تومان</span>
+                    </div>
+
+                    <div class="summary-row">
+                        <span>هزینه ارسال:</span>
+                        <span id="cart-shipping">0 تومان</span>
+                    </div>
+
+                    <div class="summary-row">
+                        <span>تخفیف:</span>
+                        <span id="cart-discount">0 تومان</span>
+                    </div>
+
+                    <div class="summary-row">
+                        <span>مبلغ قابل پرداخت:</span>
+                        <span id="cart-total">0 تومان</span>
+                    </div>
+
+                    <button onclick="proceedToCheckout()" class="btn btn-primary"
+                        style="width: 100%; margin-top: var(--spacing-lg);">
+                        ادامه و پرداخت
+                    </button>
+
+                    <div class="coupon-section">
+                        <h4>کد تخفیف دارید؟</h4>
+                        <div class="coupon-input-group">
+                            <input type="text" id="coupon-code" class="coupon-input"
+                                placeholder="کد تخفیف را وارد کنید">
+                            <button onclick="applyCoupon()" class="btn btn-secondary">اعمال</button>
+                        </div>
+                    </div>
+
+                    <p
+                        style="margin-top: var(--spacing-lg); font-size: var(--font-size-sm); color: var(--text-secondary); text-align: center;">
+                        🚚 ارسال رایگان برای خریدهای بالای 500 هزار تومان
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>© 1402 تمامی حقوق محفوظ است | فروشگاه لوازم آرایشی و بهداشتی</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Notification Styles -->
+    <style>
+        .notification {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(50%) translateY(-100px);
+            background: white;
+            padding: var(--spacing-md) var(--spacing-xl);
+            border-radius: var(--radius-lg);
+            box-shadow: 0 4px 20px var(--shadow-hover);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            z-index: 10000;
+            transition: transform var(--transition-base);
+            min-width: 300px;
+        }
+
+        .notification.show {
+            transform: translateX(50%) translateY(0);
+        }
+
+        .notification-success {
+            border-right: 4px solid var(--success);
+        }
+
+        .notification-error {
+            border-right: 4px solid var(--error);
+        }
+
+        .notification-info {
+            border-right: 4px solid var(--info);
+        }
+
+        .notification button {
+            margin-right: auto;
+            background: none;
+            border: none;
+            font-size: var(--font-size-lg);
+            cursor: pointer;
+            color: var(--text-secondary);
+        }
+    </style>
+
+    <!-- Scripts -->
+    <script src="js/product-data.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+
+</html>
