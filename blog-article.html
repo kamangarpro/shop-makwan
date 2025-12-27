@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="مطالعه مقاله در فروشگاه لوازم آرایشی و بهداشتی">
+    <title>مقاله | فروشگاه لوازم آرایشی</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .article-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: var(--spacing-xl) var(--spacing-md);
+        }
+
+        .article-header {
+            margin-bottom: var(--spacing-xl);
+            text-align: center;
+        }
+
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-md);
+            color: var(--text-secondary);
+            font-size: var(--font-size-sm);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .article-image {
+            width: 100%;
+            height: 400px;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            margin-bottom: var(--spacing-xl);
+            box-shadow: var(--shadow-md);
+        }
+
+        .article-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .article-body {
+            line-height: 1.8;
+            color: var(--text-primary);
+            font-size: 1.1rem;
+        }
+
+        .article-body h2 {
+            margin-top: var(--spacing-xl);
+            margin-bottom: var(--spacing-md);
+            color: var(--primary);
+        }
+
+        .article-body p {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .article-body ul,
+        .article-body ol {
+            margin-bottom: var(--spacing-md);
+            padding-right: var(--spacing-xl);
+        }
+
+        .related-section {
+            margin-top: var(--spacing-xxl);
+            padding-top: var(--spacing-xl);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .related-products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-md);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container navbar-content">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">💄</div>
+                <span>لوازم آرایشی</span>
+            </a>
+            <div class="nav-actions">
+                <a href="blog.html" class="nav-btn">بازگشت به مقالات</a>
+                <a href="cart.html" class="nav-btn">🛒</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container article-container">
+        <div id="article-content">
+            <!-- Content will be loaded here -->
+            <div style="text-align: center; padding: var(--spacing-xxl);">
+                در حال بارگذاری...
+            </div>
+        </div>
+
+        <section id="related-products" class="related-section" style="display: none;">
+            <h2 class="mb-3">محصولات پیشنهادی این مقاله</h2>
+            <div class="related-products-grid" id="related-grid">
+                <!-- Related products will be loaded here -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>© 1402 تمامی حقوق محفوظ است | فروشگاه لوازم آرایشی و بهداشتی</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/blog-data.js"></script>
+    <script src="js/product-data.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+        function getQueryParam(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        const articleId = parseInt(getQueryParam('id'));
+        const article = blogArticles.find(a => a.id === articleId);
+
+        if (article) {
+            document.title = `${article.title} | فروشگاه لوازم آرایشی`;
+
+            const contentDiv = document.getElementById('article-content');
+            contentDiv.innerHTML = `
+                <div class="article-header">
+                    <div style="margin-bottom: var(--spacing-sm);">
+                        <span style="background: var(--bg-accent); color: var(--primary); padding: var(--spacing-xs) var(--spacing-md); border-radius: var(--radius-lg); font-size: var(--font-size-sm);">
+                            ${article.category}
+                        </span>
+                    </div>
+                    <h1 class="hero-title" style="color: var(--text-primary); margin-bottom: var(--spacing-md);">${article.title}</h1>
+                    <div class="article-meta">
+                        <span>👤 ${article.author}</span>
+                        <span>📅 ${article.date}</span>
+                        <span>⏱️ زمان مطالعه: ${article.readTime}</span>
+                    </div>
+                </div>
+
+                <div class="article-image">
+                    <img src="${article.image}" alt="${article.title}">
+                </div>
+
+                <div class="article-body">
+                    ${article.content}
+                </div>
+            `;
+
+            // Load Related Products
+            if (article.relatedProducts && article.relatedProducts.length > 0) {
+                const relatedSection = document.getElementById('related-products');
+                const relatedGrid = document.getElementById('related-grid');
+
+                relatedSection.style.display = 'block';
+
+                const productsToShow = products.filter(p => article.relatedProducts.includes(p.id));
+
+                relatedGrid.innerHTML = productsToShow.map(product => `
+                    <div class="card product-card">
+                        <div class="card-image" style="height: 150px;">
+                            <img src="${product.image}" alt="${product.name}">
+                        </div>
+                        <div class="card-content" style="padding: var(--spacing-sm);">
+                            <h4 style="font-size: var(--font-size-base); margin-bottom: var(--spacing-xs);">${product.name}</h4>
+                            <div class="price" style="font-size: var(--font-size-sm);">${formatPrice(product.price)} تومان</div>
+                            <button onclick="addToCart(${product.id})" class="btn btn-primary mt-2" style="width: 100%; padding: var(--spacing-xs); font-size: var(--font-size-xs);">
+                                افزودن
+                            </button>
+                        </div>
+                    </div>
+                `).join('');
+            }
+        } else {
+            document.getElementById('article-content').innerHTML = `
+                <div style="text-align: center; padding: var(--spacing-xxl);">
+                    <h2>مقاله مورد نظر یافت نشد</h2>
+                    <a href="blog.html" class="btn btn-primary mt-3">بازگشت به لیست مقالات</a>
+                </div>
+            `;
+        }
+    </script>
+</body>
+
+</html>
