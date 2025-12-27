@@ -145,7 +145,7 @@ const products = [
     price: 340000,
     rating: 4.8,
     reviews: 567,
-    image: 'images/cleanser-2.jpg',
+    image: 'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&w=400&q=80',
     stock: true,
     badge: 'محبوب',
     description: 'فوم شستشوی بدون صابون و ملایم برای تمام انواع پوست'
@@ -161,7 +161,7 @@ const products = [
     price: 180000,
     rating: 4.2,
     reviews: 234,
-    image: 'images/toner-1.jpg',
+    image: 'https://images.unsplash.com/photo-1629732047847-50bad7558259?auto=format&fit=crop&w=400&q=80',
     stock: true,
     description: 'تونر طبیعی گلاب برای تازه‌کردن و آرامش پوست'
   },
@@ -174,7 +174,7 @@ const products = [
     price: 260000,
     rating: 4.6,
     reviews: 389,
-    image: 'images/micellar-1.jpg',
+    image: 'https://images.unsplash.com/photo-1556229167-da33dd638e41?auto=format&fit=crop&w=400&q=80',
     stock: true,
     description: 'آب میسلار 3 در 1 برای پاکسازی، تونیک و آرایش‌پاککن'
   },
@@ -189,7 +189,7 @@ const products = [
     price: 85000,
     rating: 4.7,
     reviews: 456,
-    image: 'images/mask-1.jpg',
+    image: 'https://images.unsplash.com/photo-1512496011931-d2b4ba517e45?auto=format&fit=crop&w=400&q=80',
     stock: true,
     description: 'ماسک ورقه‌ای با اسید هیالورونیک برای آبرسانی فوری'
   },
@@ -202,7 +202,7 @@ const products = [
     price: 310000,
     rating: 4.4,
     reviews: 198,
-    image: 'images/mask-2.jpg',
+    image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=400&q=80',
     stock: true,
     description: 'ماسک خاک رس برای پاکسازی عمیق و کنترل چربی'
   },
