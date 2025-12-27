@@ -789,7 +789,146 @@ const products = [
     stock: true,
     badge: 'محبوب',
     description: 'صابون کرمی با 1/4 کرم مرطوب‌کننده'
+  },
+  // === اکسسوری آرایشی - Makeup Accessories ===
+  {
+    id: 55,
+    name: 'ست برس آرایشی 12 تکه',
+    category: 'آرایش',
+    subcategory: 'اکسسوری',
+    brand: 'سیگما',
+    price: 1250000,
+    rating: 4.9,
+    reviews: 87,
+    image: 'https://images.unsplash.com/photo-1522338223622-02e2b2c80fc2?auto=format&fit=crop&w=400&q=80',
+    stock: true,
+    description: 'ست حرفه‌ای برس‌های آرایشی با موی طبیعی'
+  },
+  {
+    id: 56,
+    name: 'اسفنج آرایشی تخم‌مرغی',
+    category: 'آرایش',
+    subcategory: 'اکسسوری',
+    brand: 'بیوتی بلندر',
+    price: 320000,
+    rating: 4.8,
+    reviews: 432,
+    image: 'https://images.unsplash.com/photo-1590812543446-23958ad7724b?auto=format&fit=crop&w=400&q=80',
+    stock: true,
+    badge: 'پرفروش',
+    description: 'اسفنج نرم برای فید کردن کرم پودر و کانسیلر'
+  },
+  {
+    id: 57,
+    name: 'فر مژه حرفه‌ای',
+    category: 'آرایش',
+    subcategory: 'اکسسوری',
+    brand: 'شو اومورا',
+    price: 450000,
+    rating: 4.7,
+    reviews: 124,
+    image: 'https://images.unsplash.com/photo-1590439471364-192367183d7c?auto=format&fit=crop&w=400&q=80',
+    stock: true,
+    description: 'فر مژه استیل با پد سیلیکونی برای حالت‌دهی عالی'
+  },
+  // === محصولات مو - More Hair Care ===
+  {
+    id: 58,
+    name: 'روغن آرگان خالص مراکشی',
+    category: 'مراقبت مو',
+    subcategory: 'سرم مو',
+    brand: 'او جی ایکس',
+    price: 480000,
+    rating: 4.9,
+    reviews: 567,
+    image: 'https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?auto=format&fit=crop&w=400&q=80',
+    stock: true,
+    badge: 'ویژه',
+    description: 'روغن آرگان خالص برای درخشش و ترمیم مو'
+  },
+  {
+    id: 59,
+    name: 'اسپری دوفاز محافظ حرارتی',
+    category: 'مراقبت مو',
+    subcategory: 'سرم مو',
+    brand: 'گلیس',
+    price: 290000,
+    rating: 4.5,
+    reviews: 231,
+    image: 'https://images.unsplash.com/photo-1519735891363-f0a9bc490059?auto=format&fit=crop&w=400&q=80',
+    stock: true,
+    description: 'اسپری محافظ مو در برابر حرارت سشوار و اتو'
+  },
+  // === مراقبت بدن - More Body Care ===
+  {
+    id: 60,
+    name: 'ژل حمام با عصاره اسطوخودوس',
+    category: 'بهداشت شخصی',
+    subcategory: 'صابون',
+    brand: 'ایوروشه',
+    price: 260000,
+    rating: 4.6,
+    reviews: 145,
+    image: 'https://images.unsplash.com/photo-1559599101-f09736c302a6?auto=format&fit=crop&w=400&q=80',
+    stock: true,
+    description: 'ژل شستشوی بدن آرامش‌بخش با رایحه لاوندر'
+  },
+  {
+    id: 61,
+    name: 'اسکراب بدن شنی قهوه',
+    category: 'بهداشت شخصی',
+    subcategory: 'لوسیون بدن',
+    brand: 'بادیشاپ',
+    price: 420000,
+    rating: 4.8,
+    reviews: 321,
+    image: 'https://images.unsplash.com/photo-1571407920138-b769ea8ba08b?auto=format&fit=crop&w=400&q=80',
+    stock: true,
+    badge: 'جدید',
+    description: 'لایه‌بردار بدن برای رفع تیرگی و نرمی پوست'
+  },
+  {
+    id: 62,
+    name: 'کرم ضد آفتاب رنگی SPF 50',
+    category: 'مراقبت پوست',
+    subcategory: 'ضد آفتاب',
+    brand: 'بایودرما',
+    price: 650000,
+    rating: 4.8,
+    reviews: 213,
+    image: 'https://images.unsplash.com/photo-1590439471364-192367183d7c?auto=format&fit=crop&w=400&q=80',
+    stock: true,
+    badge: 'پرفروش',
+    description: 'ضد آفتاب با پوشش کرم پودری و محافظت بالا'
+  },
+  {
+    id: 63,
+    name: 'شوینده کرمی صورت اپتیمالز',
+    category: 'مراقبت پوست',
+    subcategory: 'پاک‌کننده',
+    brand: 'اوریفلیم',
+    price: 340000,
+    rating: 4.6,
+    reviews: 89,
+    image: 'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&w=400&q=80',
+    stock: true,
+    description: 'شوینده ملایم برای پوست‌های خشک و حساس'
+  },
+  {
+    id: 64,
+    name: 'پچ زیر چشم طلایی',
+    category: 'مراقبت پوست',
+    subcategory: 'ماسک صورت',
+    brand: 'پتیت‌فی',
+    price: 280000,
+    rating: 4.7,
+    reviews: 156,
+    image: 'https://images.unsplash.com/photo-1512496011931-d2b4ba517e45?auto=format&fit=crop&w=400&q=80',
+    stock: true,
+    description: 'پچ هیدروژل برای رفع تیرگی و چروک دور چشم'
   }
+
+
 ];
 
 // دسته‌بندی‌ها - Categories
