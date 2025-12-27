@@ -86,7 +86,7 @@ const products = [
     price: 890000,
     rating: 4.9,
     reviews: 156,
-    image: 'https://images.unsplash.com/photo-1612817288479-7a544866f07d?auto=format&fit=crop&w=400&q=80',
+    image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=400&q=80',
     stock: true,
     badge: 'جدید',
     description: 'سرم پیشرفته رتینول برای کاهش چین و چروک'
@@ -116,7 +116,7 @@ const products = [
     oldPrice: 1450000,
     rating: 4.7,
     reviews: 98,
-    image: 'https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?auto=format&fit=crop&w=400&q=80',
+    image: 'https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?auto=format&fit=crop&w=400&q=80',
     stock: true,
     badge: 'تخفیف',
     description: 'کرم شب لوکس با فناوری ترمیم سلولی'
@@ -145,7 +145,7 @@ const products = [
     price: 340000,
     rating: 4.8,
     reviews: 567,
-    image: 'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&w=400&q=80',
+    image: 'https://images.unsplash.com/photo-1556228578-31d63ff42ae6?auto=format&fit=crop&w=400&q=80',
     stock: true,
     badge: 'محبوب',
     description: 'فوم شستشوی بدون صابون و ملایم برای تمام انواع پوست'
@@ -189,7 +189,7 @@ const products = [
     price: 85000,
     rating: 4.7,
     reviews: 456,
-    image: 'https://images.unsplash.com/photo-1512496011931-d2b4ba517e45?auto=format&fit=crop&w=400&q=80',
+    image: 'https://images.unsplash.com/photo-1596462502278-27bfdc431b15?auto=format&fit=crop&w=400&q=80',
     stock: true,
     description: 'ماسک ورقه‌ای با اسید هیالورونیک برای آبرسانی فوری'
   },
@@ -218,7 +218,7 @@ const products = [
     oldPrice: 600000,
     rating: 4.9,
     reviews: 678,
-    image: 'https://images.unsplash.com/photo-1598440499031-54620057d733?auto=format&fit=crop&w=400&q=80',
+    image: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=400&q=80',
     stock: true,
     badge: 'پرفروش',
     description: 'کرم ضد آفتاب فاقد چربی با محافظت بسیار بالا'
