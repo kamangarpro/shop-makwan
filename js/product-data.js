@@ -4,7 +4,7 @@
 
 const products = [
   // === مراقبت پوست - Skincare ===
-  
+
   // کرم‌های مرطوب‌کننده - Moisturizers
   {
     id: 1,
@@ -43,7 +43,7 @@ const products = [
     price: 320000,
     rating: 4.3,
     reviews: 189,
-    image: 'images/moisturizer-3.jpg',
+    image: 'https://images.unsplash.com/photo-1594411133999-119391060953?auto=format&fit=crop&w=400&q=80',
     stock: true,
     description: 'کرم آرامش‌بخش با عصاره آلوئه ورا طبیعی'
   },
@@ -73,7 +73,7 @@ const products = [
     price: 420000,
     rating: 4.6,
     reviews: 278,
-    image: 'images/serum-2.jpg',
+    image: 'https://images.unsplash.com/photo-1620916566354-946618774780?auto=format&fit=crop&w=400&q=80',
     stock: true,
     description: 'سرم نیاسینامید 10% برای کاهش منافذ و لک‌های تیره'
   },
@@ -86,7 +86,7 @@ const products = [
     price: 890000,
     rating: 4.9,
     reviews: 156,
-    image: 'images/serum-3.jpg',
+    image: 'https://images.unsplash.com/photo-1612817288479-7a544866f07d?auto=format&fit=crop&w=400&q=80',
     stock: true,
     badge: 'جدید',
     description: 'سرم پیشرفته رتینول برای کاهش چین و چروک'
@@ -102,7 +102,7 @@ const products = [
     price: 720000,
     rating: 4.4,
     reviews: 134,
-    image: 'images/antiaging-1.jpg',
+    image: 'https://images.unsplash.com/photo-1598440499026-6e2764b88b22?auto=format&fit=crop&w=400&q=80',
     stock: true,
     description: 'کرم غنی شده با کلاژن برای کاهش علائم پیری'
   },
@@ -116,7 +116,7 @@ const products = [
     oldPrice: 1450000,
     rating: 4.7,
     reviews: 98,
-    image: 'images/antiaging-2.jpg',
+    image: 'https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?auto=format&fit=crop&w=400&q=80',
     stock: true,
     badge: 'تخفیف',
     description: 'کرم شب لوکس با فناوری ترمیم سلولی'
@@ -134,7 +134,8 @@ const products = [
     reviews: 412,
     image: 'images/cleanser-1.jpg',
     stock: true,
-    description: 'ژل پاک‌کننده با اسید سالیسیلیک برای پوست چرب'  },
+    description: 'ژل پاک‌کننده با اسید سالیسیلیک برای پوست چرب'
+  },
   {
     id: 10,
     name: 'فوم شستشوی ملایم',
@@ -821,8 +822,8 @@ const categories = [
 
 // برندها - Brands
 const brands = [
-  'سراوی', 'نیتروژینا', 'نیچر ریپابلیک', 'اوردینری', 'لاروش پوزای', 
-  'اولی', 'استی لادر', 'سترافیل', 'گلستان', 'گارنیر', 'مدیهیل', 
+  'سراوی', 'نیتروژینا', 'نیچر ریپابلیک', 'اوردینری', 'لاروش پوزای',
+  'اولی', 'استی لادر', 'سترافیل', 'گلستان', 'گارنیر', 'مدیهیل',
   'لوریال', 'نیوا', 'مک', 'میبلین', 'NYX', 'نارس', 'فنتی بیوتی',
   'هدی بیوتی', 'تارت', 'لورامرسیه', 'رویال', 'پنتن', 'داو',
   'هد اند شولدرز', 'مراکن اویل', 'شانل', 'کالوین کلاین',
