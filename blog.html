@@ -129,6 +129,11 @@
             background: var(--bg-accent);
             color: var(--primary);
         }
+
+        .category-link.active {
+            background: var(--primary);
+            color: white;
+        }
     </style>
 
     <!-- Scripts -->
@@ -136,12 +141,43 @@
     <script src="js/cart.js"></script>
     <script src="js/auth.js"></script>
     <script>
+        // State
+        let currentCategory = 'all';
+        let currentSearch = '';
+
         // Load Blog Articles
         function loadBlogArticles() {
             const grid = document.getElementById('blog-articles');
             if (!grid) return;
 
-            grid.innerHTML = blogArticles.map(article => `
+            let filteredArticles = blogArticles;
+
+            // Filter by Category
+            if (currentCategory !== 'all') {
+                filteredArticles = filteredArticles.filter(article => article.category === currentCategory);
+            }
+
+            // Filter by Search
+            if (currentSearch) {
+                const term = currentSearch.toLowerCase();
+                filteredArticles = filteredArticles.filter(article =>
+                    article.title.toLowerCase().includes(term) ||
+                    article.excerpt.toLowerCase().includes(term) ||
+                    article.content.toLowerCase().includes(term)
+                );
+            }
+
+            if (filteredArticles.length === 0) {
+                grid.innerHTML = `
+                    <div style="grid-column: 1/-1; text-align: center; padding: var(--spacing-xl);">
+                        <p>هیچ مقاله‌ای یافت نشد.</p>
+                        <button onclick="resetFilters()" class="btn btn-primary mt-2">نمایش همه مقالات</button>
+                    </div>
+                `;
+                return;
+            }
+
+            grid.innerHTML = filteredArticles.map(article => `
                 <div class="card">
                     <div class="card-image">
                         <img src="${article.image}" alt="${article.title}" style="width: 100%; height: 100%; object-fit: cover;">
@@ -174,11 +210,18 @@
             const container = document.getElementById('blog-categories');
             if (!container) return;
 
-            container.innerHTML = blogCategories.map(cat => `
-                <a href="#" class="category-link">
-                    ${cat.name} (${cat.count})
+            const allCount = blogArticles.length;
+
+            container.innerHTML = `
+                <a href="#" onclick="filterByCategory('all', event)" class="category-link ${currentCategory === 'all' ? 'active' : ''}">
+                    همه مقالات (${allCount})
                 </a>
-            `).join('');
+                ${blogCategories.map(cat => `
+                    <a href="#" onclick="filterByCategory('${cat.name}', event)" class="category-link ${currentCategory === cat.name ? 'active' : ''}">
+                        ${cat.name} (${cat.count})
+                    </a>
+                `).join('')}
+            `;
         }
 
         // Load Popular Tags
@@ -187,12 +230,60 @@
             if (!container) return;
 
             container.innerHTML = popularTags.map(tag => `
-                <a href="#" class="tag">${tag}</a>
+                <a href="#" onclick="searchByTag('${tag}', event)" class="tag">${tag}</a>
             `).join('');
+        }
+
+        // Filter Actions
+        function filterByCategory(category, event) {
+            if (event) event.preventDefault();
+            currentCategory = category;
+            loadBlogArticles();
+            updateActiveCategory();
+        }
+
+        function searchByTag(tag, event) {
+            if (event) event.preventDefault();
+            const searchInput = document.getElementById('blog-search');
+            if (searchInput) {
+                searchInput.value = tag;
+                currentSearch = tag;
+                loadBlogArticles();
+            }
+        }
+
+        function resetFilters() {
+            currentCategory = 'all';
+            currentSearch = '';
+            const searchInput = document.getElementById('blog-search');
+            if (searchInput) searchInput.value = '';
+            loadBlogArticles();
+            updateActiveCategory();
+        }
+
+        function updateActiveCategory() {
+            // Re-render categories to update active class
+            loadCategories();
         }
 
         // Initialize
         document.addEventListener('DOMContentLoaded', function () {
+            // Setup Search
+            const searchInput = document.getElementById('blog-search');
+            if (searchInput) {
+                searchInput.addEventListener('input', (e) => {
+                    currentSearch = e.target.value;
+                    loadBlogArticles();
+                });
+            }
+
+            // Check URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const categoryParam = urlParams.get('category');
+            if (categoryParam) {
+                currentCategory = categoryParam;
+            }
+
             loadBlogArticles();
             loadCategories();
             loadPopularTags();
