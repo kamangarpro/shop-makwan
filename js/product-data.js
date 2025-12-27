@@ -132,7 +132,7 @@ const products = [
     price: 290000,
     rating: 4.5,
     reviews: 412,
-    image: 'images/cleanser-1.jpg',
+    image: 'https://images.unsplash.com/photo-1556228720-da1e8e82b130?auto=format&fit=crop&w=400&q=80',
     stock: true,
     description: 'ژل پاک‌کننده با اسید سالیسیلیک برای پوست چرب'
   },
@@ -232,7 +232,7 @@ const products = [
     price: 380000,
     rating: 4.3,
     reviews: 234,
-    image: 'images/sunscreen-2.jpg',
+    image: 'https://images.unsplash.com/photo-1629732047847-50bad7558259?auto=format&fit=crop&w=400&q=80',
     stock: true,
     description: 'اسپری ضد آفتاب سبک و شفاف برای استفاده آسان'
   },
@@ -263,7 +263,7 @@ const products = [
     price: 290000,
     rating: 4.5,
     reviews: 421,
-    image: 'images/lipstick-2.jpg',
+    image: 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=400&q=80',
     stock: true,
     description: 'رژ لب براق با فرمول مرطوب‌کننده - رنگ گلبهی'
   },
@@ -276,7 +276,7 @@ const products = [
     price: 180000,
     rating: 4.6,
     reviews: 289,
-    image: 'images/lipliner-1.jpg',
+    image: 'https://images.unsplash.com/photo-1515688594390-b649af70d282?auto=format&fit=crop&w=400&q=80',
     stock: true,
     description: 'مداد لب ضدآب با ماندگاری 24 ساعته'
   },
@@ -291,7 +291,7 @@ const products = [
     price: 590000,
     rating: 4.7,
     reviews: 312,
-    image: 'images/blush-1.jpg',
+    image: 'https://images.unsplash.com/photo-1596462502278-27bfdc431b15?auto=format&fit=crop&w=400&q=80',
     stock: true,
     description: 'رژگونه پودری با رنگ‌دهی طبیعی و حرفه‌ای'
   },
@@ -305,7 +305,7 @@ const products = [
     oldPrice: 850000,
     rating: 4.9,
     reviews: 198,
-    image: 'images/blush-2.jpg',
+    image: 'https://images.unsplash.com/photo-1527633593644-34cabe057bf0?auto=format&fit=crop&w=400&q=80',
     stock: true,
     badge: 'جدید',
     description: 'رژگونه کرمی با فینیش طبیعی و قابل ترکیب'
@@ -335,7 +335,7 @@ const products = [
     price: 420000,
     rating: 4.6,
     reviews: 234,
-    image: 'images/eyeshadow-2.jpg',
+    image: 'https://images.unsplash.com/photo-1503236823255-94605f597e70?auto=format&fit=crop&w=400&q=80',
     stock: true,
     description: 'سایه تک رنگ با درخشش فوق‌العاده'
   },
@@ -350,7 +350,7 @@ const products = [
     price: 320000,
     rating: 4.7,
     reviews: 567,
-    image: 'images/mascara-1.jpg',
+    image: 'https://images.unsplash.com/photo-1591360236480-4ed861025fa1?auto=format&fit=crop&w=400&q=80',
     stock: true,
     description: 'ریمل با فرمول حجم‌دهنده و بلندکننده مژه'
   },
@@ -363,7 +363,7 @@ const products = [
     price: 380000,
     rating: 4.5,
     reviews: 423,
-    image: 'images/mascara-2.jpg',
+    image: 'https://images.unsplash.com/photo-1621333100607-441586b82444?auto=format&fit=crop&w=400&q=80',
     stock: true,
     badge: 'محبوب',
     description: 'ریمل ضدآب با ماندگاری 24 ساعته'
@@ -379,7 +379,7 @@ const products = [
     price: 480000,
     rating: 4.8,
     reviews: 398,
-    image: 'images/eyeliner-1.jpg',
+    image: 'https://images.unsplash.com/photo-1512496011931-d2b4ba517e45?auto=format&fit=crop&w=400&q=80',
     stock: true,
     description: 'خط چشم مایع با نوک فوق باریک و دقیق'
   },
@@ -392,7 +392,7 @@ const products = [
     price: 290000,
     rating: 4.6,
     reviews: 445,
-    image: 'images/eyeliner-2.jpg',
+    image: 'https://images.unsplash.com/photo-1512496011931-d2b4ba517e45?auto=format&fit=crop&w=400&q=80',
     stock: true,
     description: 'مداد چشم کرمی با اپلیکاتور'
   },
@@ -422,7 +422,7 @@ const products = [
     price: 620000,
     rating: 4.7,
     reviews: 678,
-    image: 'images/foundation-2.jpg',
+    image: 'https://images.unsplash.com/photo-1596704017254-9b121068fb31?auto=format&fit=crop&w=400&q=80',
     stock: true,
     description: 'پنکیک فشرده با پوشش متوسط تا کامل'
   },
@@ -435,7 +435,7 @@ const products = [
     price: 450000,
     rating: 4.6,
     reviews: 534,
-    image: 'images/cushion-1.jpg',
+    image: 'https://images.unsplash.com/photo-1596704017254-9b121068fb31?auto=format&fit=crop&w=400&q=80',
     stock: true,
     description: 'کوشن BB با SPF50 و پوشش طبیعی'
   },
@@ -450,7 +450,7 @@ const products = [
     price: 580000,
     rating: 4.8,
     reviews: 789,
-    image: 'images/concealer-1.jpg',
+    image: 'https://images.unsplash.com/photo-1596704017254-9b121068fb31?auto=format&fit=crop&w=400&q=80',
     stock: true,
     badge: 'محبوب',
     description: 'کانسیلر با پوشش کامل برای پوشش دادن تیرگی دور چشم'
@@ -464,7 +464,7 @@ const products = [
     price: 280000,
     rating: 4.5,
     reviews: 423,
-    image: 'images/concealer-2.jpg',
+    image: 'https://images.unsplash.com/photo-1596704017254-9b121068fb31?auto=format&fit=crop&w=400&q=80',
     stock: true,
     description: 'کانسیلر استیکی برای پوشش سریع لکه‌ها'
   },
@@ -479,7 +479,7 @@ const products = [
     price: 720000,
     rating: 4.9,
     reviews: 543,
-    image: 'images/powder-1.jpg',
+    image: 'https://images.unsplash.com/photo-1596704017254-9b121068fb31?auto=format&fit=crop&w=400&q=80',
     stock: true,
     badge: 'جدید',
     description: 'پودر تثبیت‌کننده شفاف برای آرایش بادوام'
@@ -493,7 +493,7 @@ const products = [
     price: 240000,
     rating: 4.4,
     reviews: 312,
-    image: 'images/powder-2.jpg',
+    image: 'https://images.unsplash.com/photo-1596704017254-9b121068fb31?auto=format&fit=crop&w=400&q=80',
     stock: true,
     description: 'پودر فشرده برای کنترل چربی و مات کردن'
   },
@@ -510,7 +510,7 @@ const products = [
     price: 180000,
     rating: 4.5,
     reviews: 456,
-    image: 'images/shampoo-1.jpg',
+    image: 'https://images.unsplash.com/photo-1559599101-f09736c302a6?auto=format&fit=crop&w=400&q=80',
     stock: true,
     description: 'شامپو تقویت‌کننده با پروتئین برای موهای آسیب‌دیده'
   },
@@ -523,7 +523,7 @@ const products = [
     price: 220000,
     rating: 4.6,
     reviews: 567,
-    image: 'images/shampoo-2.jpg',
+    image: 'https://images.unsplash.com/photo-1559599101-f09736c302a6?auto=format&fit=crop&w=400&q=80',
     stock: true,
     badge: 'محبوب',
     description: 'شامپو تقویت‌کننده ریشه مو و ضد ریزش'
@@ -537,7 +537,7 @@ const products = [
     price: 190000,
     rating: 4.7,
     reviews: 423,
-    image: 'images/shampoo-3.jpg',
+    image: 'https://images.unsplash.com/photo-1559599101-f09736c302a6?auto=format&fit=crop&w=400&q=80',
     stock: true,
     description: 'شامپو درمانی برای از بین بردن شوره سر'
   },
@@ -552,7 +552,7 @@ const products = [
     price: 340000,
     rating: 4.8,
     reviews: 389,
-    image: 'images/conditioner-1.jpg',
+    image: 'https://images.unsplash.com/photo-1559599141-945781a96752?auto=format&fit=crop&w=400&q=80',
     stock: true,
     description: 'نرم‌کننده غنی شده با روغن آرگان'
   },
@@ -565,7 +565,7 @@ const products = [
     price: 195000,
     rating: 4.4,
     reviews: 267,
-    image: 'images/conditioner-2.jpg',
+    image: 'https://images.unsplash.com/photo-1559599141-945781a96752?auto=format&fit=crop&w=400&q=80',
     stock: true,
     description: 'نرم‌کننده سبک برای حجم و طراوت مو'
   },
@@ -595,7 +595,7 @@ const products = [
     price: 280000,
     rating: 4.6,
     reviews: 234,
-    image: 'images/hairmask-2.jpg',
+    image: 'https://images.unsplash.com/photo-1559599101-f09736c302a6?auto=format&fit=crop&w=400&q=80',
     stock: true,
     description: 'ماسک مغذی برای موهای خشک و وز'
   },
@@ -610,7 +610,7 @@ const products = [
     price: 380000,
     rating: 4.7,
     reviews: 456,
-    image: 'images/hairserum-1.jpg',
+    image: 'https://images.unsplash.com/photo-1559599101-f09736c302a6?auto=format&fit=crop&w=400&q=80',
     stock: true,
     badge: 'محبوب',
     description: 'سرم روغنی برای موهای خشک و آسیب‌دیده'
@@ -624,7 +624,7 @@ const products = [
     price: 450000,
     rating: 4.8,
     reviews: 321,
-    image: 'images/hairserum-2.jpg',
+    image: 'https://images.unsplash.com/photo-1559599101-f09736c302a6?auto=format&fit=crop&w=400&q=80',
     stock: true,
     description: 'سرم کنترل‌کننده وز و براق‌کننده'
   },
@@ -641,7 +641,7 @@ const products = [
     price: 3500000,
     rating: 4.9,
     reviews: 234,
-    image: 'images/perfume-1.jpg',
+    image: 'https://images.unsplash.com/photo-1557170334-a7c3d40a02a4?auto=format&fit=crop&w=400&q=80',
     stock: true,
     badge: 'لوکس',
     description: 'عطر زنانه با نُت‌های گلی و شیرین'
@@ -655,7 +655,7 @@ const products = [
     price: 1800000,
     rating: 4.7,
     reviews: 456,
-    image: 'images/perfume-2.jpg',
+    image: 'https://images.unsplash.com/photo-1557170334-a7c3d40a02a4?auto=format&fit=crop&w=400&q=80',
     stock: true,
     description: 'ادکلن مردانه با رایحه تازه و اسپرت'
   },
@@ -669,7 +669,7 @@ const products = [
     oldPrice: 850000,
     rating: 4.6,
     reviews: 567,
-    image: 'images/bodymist-1.jpg',
+    image: 'https://images.unsplash.com/photo-1557170334-a7c3d40a02a4?auto=format&fit=crop&w=400&q=80',
     stock: true,
     badge: 'تخفیف',
     description: 'اسپری معطر بدن با رایحه میوه‌ای'
@@ -685,7 +685,7 @@ const products = [
     price: 145000,
     rating: 4.5,
     reviews: 678,
-    image: 'images/deodorant-1.jpg',
+    image: 'https://images.unsplash.com/photo-1556228720-da1e8e82b130?auto=format&fit=crop&w=400&q=80',
     stock: true,
     description: 'دئودورانت بدون الکل با محافظت 48 ساعته'
   },
@@ -698,7 +698,7 @@ const products = [
     price: 125000,
     rating: 4.4,
     reviews: 534,
-    image: 'images/deodorant-2.jpg',
+    image: 'https://images.unsplash.com/photo-1556228720-da1e8e82b130?auto=format&fit=crop&w=400&q=80',
     stock: true,
     badge: 'محبوب',
     description: 'اسپری دئودورانت با رایحه ملایم'
@@ -714,7 +714,7 @@ const products = [
     price: 98000,
     rating: 4.6,
     reviews: 423,
-    image: 'images/handcream-1.jpg',
+    image: 'https://images.unsplash.com/photo-1556228720-da1e8e82b130?auto=format&fit=crop&w=400&q=80',
     stock: true,
     description: 'کرم نرم‌کننده و مرطوب‌کننده دست'
   },
@@ -727,7 +727,7 @@ const products = [
     price: 280000,
     rating: 4.8,
     reviews: 289,
-    image: 'images/handcream-2.jpg',
+    image: 'https://images.unsplash.com/photo-1556228720-da1e8e82b130?auto=format&fit=crop&w=400&q=80',
     stock: true,
     description: 'کرم دست لوکس با رایحه دلپذیر'
   },
@@ -742,7 +742,7 @@ const products = [
     price: 185000,
     rating: 4.5,
     reviews: 567,
-    image: 'images/bodylotion-1.jpg',
+    image: 'https://images.unsplash.com/photo-1556228720-da1e8e82b130?auto=format&fit=crop&w=400&q=80',
     stock: true,
     description: 'لوسیون آبرسان با جذب سریع'
   },
@@ -756,7 +756,7 @@ const products = [
     oldPrice: 280000,
     rating: 4.6,
     reviews: 445,
-    image: 'images/bodylotion-2.jpg',
+    image: 'https://images.unsplash.com/photo-1556228720-da1e8e82b130?auto=format&fit=crop&w=400&q=80',
     stock: true,
     badge: 'تخفیف',
     description: 'لوسیون بدن با ویتامین C روشن‌کننده'
@@ -772,7 +772,7 @@ const products = [
     price: 42000,
     rating: 4.4,
     reviews: 678,
-    image: 'images/soap-1.jpg',
+    image: 'https://images.unsplash.com/photo-1556228720-da1e8e82b130?auto=format&fit=crop&w=400&q=80',
     stock: true,
     description: 'صابون شفاف با گلیسیرین طبیعی'
   },
@@ -785,7 +785,7 @@ const products = [
     price: 55000,
     rating: 4.7,
     reviews: 534,
-    image: 'images/soap-2.jpg',
+    image: 'https://images.unsplash.com/photo-1556228720-da1e8e82b130?auto=format&fit=crop&w=400&q=80',
     stock: true,
     badge: 'محبوب',
     description: 'صابون کرمی با 1/4 کرم مرطوب‌کننده'
